@@ -2,103 +2,68 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Task Manager Design System - Professional & Modern */
+/* Task Manager Design System - Tema Oscuro con Fondo Negro */
 
 @layer base {
   :root {
-    /* Core Colors */
-    --background: 248 250 252;
-    --foreground: 226 232 240;
+    /* Task Manager Dark Theme - Fondo Negro y Letras Blancas */
+    --background: 0 0% 5%;
+    --foreground: 0 0% 95%;
     
     /* Task Manager Brand Colors */
-    --primary: 219 234 254;
-    --primary-foreground: 30 41 59;
-    --primary-glow: 239 246 255;
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 98%;
+    --primary-glow: 217 91% 70%;
     
-    /* Task Status Colors */
-    --status-pending: 203 213 225;
-    --status-pending-foreground: 71 85 105;
-    --status-progress: 254 240 138;
-    --status-progress-foreground: 120 53 15;
-    --status-review: 147 197 253;
-    --status-review-foreground: 30 58 138;
-    --status-complete: 134 239 172;
-    --status-complete-foreground: 22 101 52;
+    /* Task Status Colors - Colores HSL válidos */
+    --status-pending: 0 0% 60%;
+    --status-pending-foreground: 0 0% 95%;
+    --status-progress: 45 93% 65%;
+    --status-progress-foreground: 0 0% 10%;
+    --status-review: 217 91% 65%;
+    --status-review-foreground: 0 0% 10%;
+    --status-complete: 142 76% 65%;
+    --status-complete-foreground: 0 0% 10%;
     
-    /* Priority Colors */
-    --priority-high: 248 113 113;
-    --priority-high-foreground: 127 29 29;
-    --priority-medium: 251 191 36;
-    --priority-medium-foreground: 146 64 14;
-    --priority-low: 156 163 175;
-    --priority-low-foreground: 55 65 81;
+    /* Priority Colors - HSL válidos */
+    --priority-high: 0 84% 60%;
+    --priority-high-foreground: 0 0% 95%;
+    --priority-medium: 45 93% 60%;
+    --priority-medium-foreground: 0 0% 10%;
+    --priority-low: 0 0% 60%;
+    --priority-low-foreground: 0 0% 95%;
     
-    /* UI Components */
-    --card: 255 255 255;
-    --card-foreground: 51 65 85;
-    --card-border: 226 232 240;
+    /* UI Components - Tema Oscuro */
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 95%;
+    --card-border: 0 0% 20%;
     
-    --secondary: 241 245 249;
-    --secondary-foreground: 51 65 85;
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 90%;
     
-    --muted: 248 250 252;
-    --muted-foreground: 100 116 139;
+    --muted: 0 0% 8%;
+    --muted-foreground: 0 0% 70%;
     
-    --accent: 219 234 254;
-    --accent-foreground: 30 58 138;
+    --accent: 217 91% 60%;
+    --accent-foreground: 0 0% 98%;
     
-    --border: 226 232 240;
-    --input: 255 255 255;
-    --input-border: 203 213 225;
-    --ring: 147 197 253;
+    --border: 0 0% 20%;
+    --input: 0 0% 10%;
+    --input-border: 0 0% 25%;
+    --ring: 217 91% 60%;
     
     /* Design Elements */
-    --gradient-primary: linear-gradient(135deg, hsl(219 234 254) 0%, hsl(239 246 255) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(255 255 255) 0%, hsl(248 250 252) 100%);
-    --shadow-card: 0 1px 3px 0 hsl(226 232 240 / 0.3), 0 1px 2px -1px hsl(226 232 240 / 0.3);
-    --shadow-elevated: 0 4px 6px -1px hsl(226 232 240 / 0.4), 0 2px 4px -2px hsl(226 232 240 / 0.4);
-    --shadow-glow: 0 0 20px hsl(219 234 254 / 0.3);
+    --gradient-primary: linear-gradient(135deg, hsl(0 0% 5%) 0%, hsl(0 0% 10%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 10%) 0%, hsl(0 0% 8%) 100%);
+    --shadow-card: 0 1px 3px 0 hsl(0 0% 0% / 0.5), 0 1px 2px -1px hsl(0 0% 0% / 0.5);
+    --shadow-elevated: 0 4px 6px -1px hsl(0 0% 0% / 0.7), 0 2px 4px -2px hsl(0 0% 0% / 0.7);
+    --shadow-glow: 0 0 20px hsl(217 91% 60% / 0.3);
     
     --radius: 0.75rem;
     
     /* Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-fast: all 0.15s ease-out;
-  }
-
-  .dark {
-    /* Task Manager Dark Theme */
-    --background: 15 23 42;
-    --foreground: 226 232 240;
-    
-    --primary: 30 58 138;
-    --primary-foreground: 239 246 255;
-    --primary-glow: 30 41 59;
-    
-    --card: 30 41 59;
-    --card-foreground: 226 232 240;
-    --card-border: 51 65 85;
-    
-    --secondary: 51 65 85;
-    --secondary-foreground: 203 213 225;
-    
-    --muted: 30 41 59;
-    --muted-foreground: 148 163 184;
-    
-    --accent: 30 58 138;
-    --accent-foreground: 239 246 255;
-    
-    --border: 51 65 85;
-    --input: 30 41 59;
-    --input-border: 71 85 105;
-    --ring: 147 197 253;
-    
-    /* Dark gradients and shadows */
-    --gradient-primary: linear-gradient(135deg, hsl(30 58 138) 0%, hsl(30 41 59) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(30 41 59) 0%, hsl(15 23 42) 100%);
-    --shadow-card: 0 1px 3px 0 hsl(15 23 42 / 0.5), 0 1px 2px -1px hsl(15 23 42 / 0.5);
-    --shadow-elevated: 0 4px 6px -1px hsl(15 23 42 / 0.6), 0 2px 4px -2px hsl(15 23 42 / 0.6);
-    --shadow-glow: 0 0 20px hsl(30 58 138 / 0.4);
   }
 }
 
@@ -108,7 +73,7 @@
   }
 
   body {
-    @apply bg-background text-card-foreground font-sans antialiased;
+    @apply bg-background text-foreground font-sans antialiased;
     background: var(--gradient-primary);
     min-height: 100vh;
   }

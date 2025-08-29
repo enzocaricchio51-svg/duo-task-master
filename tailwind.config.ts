@@ -51,37 +51,23 @@ export default {
 				},
 				// Task Status Colors
 				status: {
-					pending: {
-						DEFAULT: 'hsl(var(--status-pending))',
-						foreground: 'hsl(var(--status-pending-foreground))'
-					},
-					progress: {
-						DEFAULT: 'hsl(var(--status-progress))',
-						foreground: 'hsl(var(--status-progress-foreground))'
-					},
-					review: {
-						DEFAULT: 'hsl(var(--status-review))',
-						foreground: 'hsl(var(--status-review-foreground))'
-					},
-					complete: {
-						DEFAULT: 'hsl(var(--status-complete))',
-						foreground: 'hsl(var(--status-complete-foreground))'
-					}
+					pending: 'hsl(var(--status-pending))',
+					'pending-foreground': 'hsl(var(--status-pending-foreground))',
+					progress: 'hsl(var(--status-progress))',
+					'progress-foreground': 'hsl(var(--status-progress-foreground))',
+					review: 'hsl(var(--status-review))',
+					'review-foreground': 'hsl(var(--status-review-foreground))',
+					complete: 'hsl(var(--status-complete))',
+					'complete-foreground': 'hsl(var(--status-complete-foreground))'
 				},
-				// Priority Colors
+				// Priority Colors  
 				priority: {
-					high: {
-						DEFAULT: 'hsl(var(--priority-high))',
-						foreground: 'hsl(var(--priority-high-foreground))'
-					},
-					medium: {
-						DEFAULT: 'hsl(var(--priority-medium))',
-						foreground: 'hsl(var(--priority-medium-foreground))'
-					},
-					low: {
-						DEFAULT: 'hsl(var(--priority-low))',
-						foreground: 'hsl(var(--priority-low-foreground))'
-					}
+					high: 'hsl(var(--priority-high))',
+					'high-foreground': 'hsl(var(--priority-high-foreground))',
+					medium: 'hsl(var(--priority-medium))',
+					'medium-foreground': 'hsl(var(--priority-medium-foreground))',
+					low: 'hsl(var(--priority-low))',
+					'low-foreground': 'hsl(var(--priority-low-foreground))'
 				}
 			},
 			borderRadius: {

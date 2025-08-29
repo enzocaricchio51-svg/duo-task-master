@@ -30,6 +30,36 @@ export const TaskCard = ({ task, onStatusChange, onEdit, onDelete, onAddComment 
   const isOverdue = dueDateObj < new Date() && task.status !== 'complete';
   const isDueSoon = dueDateObj < new Date(Date.now() + 7 * 24 * 60 * 60 * 1000) && task.status !== 'complete';
 
+  // Función para obtener las clases de color según el estado
+  const getStatusClasses = (status: string) => {
+    switch (status) {
+      case 'pending':
+        return 'bg-status-pending text-status-pending-foreground';
+      case 'progress':
+        return 'bg-status-progress text-status-progress-foreground';
+      case 'review':
+        return 'bg-status-review text-status-review-foreground';
+      case 'complete':
+        return 'bg-status-complete text-status-complete-foreground';
+      default:
+        return 'bg-status-pending text-status-pending-foreground';
+    }
+  };
+
+  // Función para obtener las clases de color según la prioridad
+  const getPriorityClasses = (priority: string) => {
+    switch (priority) {
+      case 'high':
+        return 'bg-priority-high text-priority-high-foreground';
+      case 'medium':
+        return 'bg-priority-medium text-priority-medium-foreground';
+      case 'low':
+        return 'bg-priority-low text-priority-low-foreground';
+      default:
+        return 'bg-priority-medium text-priority-medium-foreground';
+    }
+  };
+
   return (
     <Card className="task-card p-6 space-y-4">
       {/* Header */}
@@ -38,7 +68,7 @@ export const TaskCard = ({ task, onStatusChange, onEdit, onDelete, onAddComment 
           <div className="flex items-center gap-2">
             <h3 className="text-lg font-semibold text-card-foreground">{task.name}</h3>
             {isOverdue && (
-              <Badge variant="destructive" className="text-xs">Vencida</Badge>
+              <Badge className="bg-priority-high text-priority-high-foreground text-xs">Vencida</Badge>
             )}
             {isDueSoon && !isOverdue && (
               <Badge className="bg-priority-medium text-priority-medium-foreground text-xs">Próxima</Badge>
@@ -46,12 +76,12 @@ export const TaskCard = ({ task, onStatusChange, onEdit, onDelete, onAddComment 
           </div>
           
           <div className="flex items-center gap-3">
-            <div className={`status-badge bg-${statusConfig.color} text-${statusConfig.color}-foreground`}>
+            <div className={`status-badge ${getStatusClasses(task.status)}`}>
               <span>{statusConfig.emoji}</span>
               <span>{statusConfig.label}</span>
             </div>
             
-            <div className={`priority-badge bg-${priorityConfig.color} text-${priorityConfig.color}-foreground`}>
+            <div className={`priority-badge ${getPriorityClasses(task.priority)}`}>
               <span>{priorityConfig.emoji}</span>
               <span>{priorityConfig.label}</span>
             </div>
@@ -88,7 +118,7 @@ export const TaskCard = ({ task, onStatusChange, onEdit, onDelete, onAddComment 
             <DropdownMenuSeparator />
             <DropdownMenuItem 
               onClick={() => onDelete(task.id)} 
-              className="flex items-center gap-2 text-red-600"
+              className="flex items-center gap-2 text-priority-high"
             >
               <Trash2 className="h-4 w-4" />
               Eliminar
@@ -114,7 +144,7 @@ export const TaskCard = ({ task, onStatusChange, onEdit, onDelete, onAddComment 
         <div className="flex items-center gap-2">
           <Calendar className="h-4 w-4 text-muted-foreground" />
           <span className="text-muted-foreground">Fecha:</span>
-          <span className={`font-medium ${isOverdue ? 'text-red-600' : 'text-card-foreground'}`}>
+          <span className={`font-medium ${isOverdue ? 'text-priority-high' : 'text-card-foreground'}`}>
             {format(dueDateObj, 'dd/MM/yyyy', { locale: es })}
           </span>
         </div>
